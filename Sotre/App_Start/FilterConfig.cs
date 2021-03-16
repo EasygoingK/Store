@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Sotre
+namespace Store
 {
     public class FilterConfig
     {

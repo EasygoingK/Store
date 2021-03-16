@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Sotre.Controllers
+namespace Store.Controllers
 {
     public class HomeController : Controller
     {
@@ -23,6 +23,12 @@ namespace Sotre.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Edit()
+        {
 
             return View();
         }

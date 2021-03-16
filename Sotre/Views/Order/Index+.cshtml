@@ -1,0 +1,82 @@
+﻿@model Store.Models.OrderList
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>OrderList</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>OrderList</h4>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsPaid)
+                </th>
+                <th>
+                    @*@Html.CheckBoxFor(model => model.IsPaid)*@
+                    @Html.DisplayNameFor(model => model.OrderId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderItem)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cost)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th></th>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.CheckBoxFor(model => model.IsPaid)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.OrderId)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.OrderItem)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Status)
+                </td>
+
+            </tr>
+            
+
+        </table>
+
+
+       
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

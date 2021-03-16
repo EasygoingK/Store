@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Store.Models.OrderList>
+@using System.Data.Entity;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>OrderList</h2>
+
+@using (Html.BeginForm("Tobeshipped", "Order", FormMethod.Post))
+{
+    <table class="table">
+        <tr>
+            <th>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderItem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @{
+            var data = Model.ToArray();
+        }
+
+        @for (int i = 0; i < data.Length; i++)
+        {
+            <tr>
+                @Html.HiddenFor(modelItem => data[i].Id)
+                @Html.HiddenFor(modelItem => data[i].OrderId)
+                <td>
+                    @if (data[i].IsPaid)
+                    {
+                        @Html.CheckBoxFor(modelItem => data[i].IsPaid, new { @disabled = "disabled"})
+                    }
+                    else
+                    {
+                        @Html.CheckBoxFor(modelItem => data[i].IsPaid)
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => data[i].OrderId)
+                </td>
+                <td>
+                    @Html.ActionLink(data[i].OrderItem.ToString(), "Details", new { id = data[i].Id })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => data[i].Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => data[i].Cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => data[i].Status)
+                </td>
+            </tr>
+        }
+    </table>
+
+    <input type="submit" value="Confirm" class="btn  btn-primary" />
+}
