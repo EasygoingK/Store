@@ -54,10 +54,10 @@ namespace Store.Controllers
                         db.SaveChanges();
                     }
                 }
-                return RedirectToAction("Index", new { userId = getUserId });
+                return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Index", new { userId = getUserId });
+            return RedirectToAction("Index");
         }
 
         public ActionResult Details(int id)
